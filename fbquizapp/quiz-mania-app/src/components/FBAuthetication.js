@@ -1,35 +1,29 @@
 import React, { Component } from 'react';
 
-class ImageTemplate extends Component {
+class FbAuth extends Component {
+
+  handleClick = () => {
+    console.log('this is:', this);
+  }
+
   render() {
     return (
-      <div className="App">
-        <table>
-          <tr>
-            <td>
-              <p>This is just a trial. This is just a trial. This is just a trial.</p>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <p>This is just a trial 2.</p>
-            </td>
-            <td>
-              <p>This is just a trial 3.</p>
-            </td>
-            <td>
-              <p>This is just a trial 4.</p>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <p>This is just a trial. This is just a trial. This is just a trial.</p>
-            </td>
-          </tr>
-        </table>
-      </div>
+        <div className="container">
+          <p>test the authentication</p>
+          <div className="row">
+            <img src="" alt="User Image"/>
+          </div>
+          <div className="row">
+            <p> User Details</p>
+          </div>
+           <div className="row">
+            <button onClick={this.handleClick} className="btn btn-primary">
+                Allow app to use FB Details
+            </button>
+          </div>
+        </div>
     );
   }
 }
 
-export default ImageTemplate;
+export default FbAuth;
