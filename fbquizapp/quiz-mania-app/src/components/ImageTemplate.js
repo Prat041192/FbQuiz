@@ -12,7 +12,7 @@ class ImageTemplate extends Component {
            </div>
            <div className="row">
              <div className="col-md-4">
-                <p>Image of the User</p>
+                <img id="image" src={this.imgdata} className="App-logo" alt="logo" />
               </div>
               <div className="col-md-4">
                   <p>Comparing stats</p>

@@ -1,26 +1,39 @@
 import React, { Component } from 'react';
+import FacebookLogin from 'react-facebook-login';
+import { Redirect } from 'react-router-dom'
+
+const imgdata =  'ok'
 
 class FbAuth extends Component {
 
-  handleClick = () => {
-    console.log('this is:', this);
+
+  state = {
+    redirect: false
   }
+  renderRedirect = () => {
+    if (this.state.redirect) {
+      return <Redirect to='/result/'/>
+    }
+  }
+  
+  responseFacebook = (response) => {
+    var tempRes = response;
+    console.log(tempRes.picture.data.url);
+    this.setState({
+      redirect: true,
+      imgdata: tempRes.picture.data.url
+    })
+    console.log('Clicked');
+    document.getElementById('image').src = tempRes.picture.data.url;
+    }
+
 
   render() {
     return (
         <div className="container">
-          <p>test the authentication</p>
-          <div className="row">
-            <img src="" alt="User Image"/>
-          </div>
-          <div className="row">
-            <p> User Details</p>
-          </div>
-           <div className="row">
-            <button onClick={this.handleClick} className="btn btn-primary">
-                Allow app to use FB Details
-            </button>
-          </div>
+        {this.renderRedirect()}
+          <FacebookLogin appId="377304522681577" fields="name,email,picture" scope="public_profile,user_friends,user_actions.books"
+          callback={this.responseFacebook} size="small"/>
         </div>
     );
   }

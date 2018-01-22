@@ -10,21 +10,22 @@ import {
     Route
 } from "react-browser-router";
 
+
 class App extends Component {
   render() {
     return (
       <div className="App">
          <BrowserRouter>
-        <div>
+        <div className="container-fluid">
            <header className="jumbotron">
             <Menu></Menu>
             <img src={logo} className="App-logo" alt="logo" />
             <h1 className="App-title">Welcome to React</h1>
           </header>
            <div>
-                     <Route exact path="/" component={Home} />
-                     <Route path="/createquiz" component={NewQuiz} />
-                     <Route path="/result" component={ImageTemplate} />
+                <Route exact path="/" component={Home} />
+                <Route path="/createquiz" component={NewQuiz} />
+                <Route path="/result" component={ImageTemplate} />
            </div>
        </div>
       </BrowserRouter>
